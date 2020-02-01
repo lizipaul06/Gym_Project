@@ -3,19 +3,19 @@
 <table>
   <tr>
     <th>Activity</th>
-    <th>Instructor</th>
-    <th>Type</th>
+    <th>Day</th>
+    <th>Time</th>
     <th>Spaces Remaining</th>
-    <th>Intensity</th>
-    <!-- <th>Type</th> -->
+
+
   </tr>
-  <% for gym_class in @gym_classes %>
+  <% for class_time in @class_times %>
   <tr>
-    <td><a href="/classes/<%= gym_class.id %>"><%= gym_class.activity %></a></td>
-    <td><%= gym_class.times %></td>
-    <td><%= gym_class.type %></td>
-    <td> </td>
-    <td><%= gym_class.intensity %></td>
-  </tr>
+    <td><a href="/classes/<%=class_time.id%>"><%= class_time.activity%></a>  </td>
+    <td><%= class_time.date  %></td>
+    <td><%= class_time.time  %></td>
+    <td><%= class_time.capacity  %></td>
+
+</tr
   <% end %>
 </table>

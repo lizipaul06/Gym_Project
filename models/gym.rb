@@ -7,7 +7,7 @@ class Gym_class
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
-    @actiivty = options['activity']
+    @activity = options['activity']
     @instructor_id = options['instructor_id'].to_i
     @type = options['type']
     @intensity = options['intensity']
@@ -20,8 +20,8 @@ class Gym_class
     sql = "INSERT INTO classes (activity, instructor_id, type, intensity, status)
     VALUES( $1, $2, $3, $4, $5) RETURNING id"
     values = [@activity, @instructor_id, @type, @intensity, @status]
-    results = SqlRunner.run(sql, values)
-    @id = results.first()['id'].to_i
+    results = SqlRunner.run(sql, values).first
+    @id = results['id'].to_i
   end
 
   def self.all()
@@ -49,17 +49,18 @@ class Gym_class
 end
 
 def times
-  sql = "SELECT * FROM class_times WHERE class_id = $1 ORDER BY class_times.time ASC"
-  values = [@id]
-  results = SqlRunner.run( sql, values)
-  return results.map { |time| Class_time.new(time) }
+  sql = "SELECT * FROM class_times WHERE id = $1"
+  values = [@class_id]
+  class_time = SqlRunner.run(sql, values)
+  return Class_time.new(class_time)
 end
+
 
 def instructor
   sql = "SELECT * FROM instructors WHERE id = $1"
   values = [@instructor_id]
-  name = SqlRunner.run( sql, values)[0]
-  return Instructor.new(name)
+  instructor = SqlRunner.run(sql, values).first
+  return Instructor.new(instructor)
 end
 
 end

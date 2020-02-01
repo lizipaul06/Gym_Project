@@ -1,1 +1,20 @@
 <h1> A list of all of our members </h1>
+
+<table>
+  <tr>
+
+
+    <th>Name</th>
+    <th>Membership</th>
+    <th>Status</th>
+  </tr>
+  <% for customer in @customers %>
+  <tr>
+    <td><a href="/customers/<%= customer.id %>"><%= customer.pretty_name %></a></td>
+    <td><%= customer.membership %></td>
+    <td><%= customer.status %></td>
+  </tr>
+  <% end %>
+</table>
+
+<a href="/customers/new"> Add customer </a>

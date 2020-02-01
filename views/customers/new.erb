@@ -1,0 +1,26 @@
+<h1> This is the edit page</h1>
+
+<form method="post" action="/customers/">
+ <label for="first_name"> Name: </label>
+ <input id="first_name" type="text" name="first_name" >
+
+ <form method="post" action="/customers/">
+  <label for="last_name"> Name: </label>
+  <input id="last_name" type="text" name="last_name" >
+
+
+ <label for="membership">Membership:</label>
+ <select name="membership" >
+   <option value="off-peak">Off-peak</option>
+   <option value="peak">Peak</option>
+ </select>
+
+ <hr />
+ <label for="status">Status:</label>
+ <select name="status" >
+   <option value="deactive">Active </option>
+   <option value="active">Deactive</option>
+ </select>
+ <input type="submit"  value="Submit Your update">
+   <hr />
+</form>

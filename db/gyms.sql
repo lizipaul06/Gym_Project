@@ -6,7 +6,8 @@ DROP TABLE customers;
 
 CREATE TABLE customers(
   id SERIAL PRIMARY KEY,
-  name VARCHAR(255),
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
   membership VARCHAR(255),
   status VARCHAR(255)
 );

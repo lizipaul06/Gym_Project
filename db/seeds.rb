@@ -12,11 +12,11 @@ Gym_class.delete_all()
 Instructor.delete_all()
 Customer.delete_all()
 
-customer1 = Customer.new({'name' => 'Margret Jones', 'membership' => 'off-peak', 'status' => 'active'})
-customer2 = Customer.new({'name' => 'James Davids', 'membership' => 'peak', 'status' => 'active'})
-customer3 = Customer.new({'name' => 'Tom Williams', 'membership' => 'off-peak', 'status' => 'deactive'})
-customer4 = Customer.new({'name' => 'James Kimpling', 'membership' => 'peak', 'status' => 'active'})
-customer5 = Customer.new({'name' => 'Will Smith', 'membership' => 'off-peak', 'status' => 'deactive'})
+customer1 = Customer.new({'first_name' => 'Margret','last_name' => 'Jones', 'membership' => 'off-peak', 'status' => 'active'})
+customer2 = Customer.new({'first_name' => 'James','last_name' => 'Davis', 'membership' => 'peak', 'status' => 'active'})
+customer3 = Customer.new({'first_name' => 'Tom','last_name' => 'Wiliiams', 'membership' => 'off-peak', 'status' => 'deactive'})
+customer4 = Customer.new({'first_name' => 'James','last_name' => 'Kimpling', 'membership' => 'peak', 'status' => 'active'})
+customer5 = Customer.new({'first_name' => 'Will', 'last_name' => 'Smith','membership' => 'off-peak', 'status' => 'deactive'})
 
 customer1.save
 customer2.save
@@ -33,9 +33,9 @@ instructor2.save
 instructor3.save
 
 
-class1 = Gym_class.new({'activty' => 'HIT to the MAX ', 'instructor_id' => 1, 'type' => 'peak', 'intensity' =>  'High impact', 'status' => 'active'})
-class2 = Gym_class.new({'actiivty' => 'Yoga ', 'instructor_id' => 3, 'type' => 'off-peak', 'intensity' =>  'Low impact', 'status' => 'active'})
-class3 = Gym_class.new({'activty' => 'Spin', 'instructor_id' => 1, 'type' => 'peak', 'intensity' =>  'High impact', 'status' => 'deactive'})
+class1 = Gym_class.new({'activity' => 'HIT to the MAX ', 'instructor_id' => 1, 'type' => 'peak', 'intensity' =>  'High impact', 'status' => 'active'})
+class2 = Gym_class.new({'activity' => 'Yoga ', 'instructor_id' => 3, 'type' => 'off-peak', 'intensity' =>  'Low impact', 'status' => 'active'})
+class3 = Gym_class.new({'activity' => 'Spin', 'instructor_id' => 1, 'type' => 'peak', 'intensity' =>  'High impact', 'status' => 'deactive'})
 
 class1.save
 class2.save
