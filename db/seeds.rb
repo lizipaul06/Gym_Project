@@ -3,7 +3,7 @@ require_relative( "../models/class_time.rb" )
 require_relative( "../models/gym.rb" )
 require_relative( "../models/instructor.rb" )
 require_relative( "../models/customer.rb" )
-
+require('pry')
 
 
 Booking.delete_all()
@@ -60,11 +60,11 @@ class_time7.save
 class_time8.save
 class_time9.save
 
-booking1 = Booking.new({'customer_id' => 1, 'class_id' => 3, 'class_time_id' => 9})
-booking2 = Booking.new({'customer_id' => 2, 'class_id' => 2, 'class_time_id' => 8})
-booking3 = Booking.new({'customer_id' => 1, 'class_id' => 3, 'class_time_id' => 7})
-booking4 = Booking.new({'customer_id' => 3, 'class_id' => 1, 'class_time_id' => 5})
-booking5 = Booking.new({'customer_id' => 2, 'class_id' => 1, 'class_time_id' => 6})
+booking1 = Booking.new({'customer_id' => 1, 'class_id' => 3, 'class_time_id' => 1})
+booking2 = Booking.new({'customer_id' => 2, 'class_id' => 2, 'class_time_id' => 1})
+booking3 = Booking.new({'customer_id' => 1, 'class_id' => 3, 'class_time_id' => 2})
+booking4 = Booking.new({'customer_id' => 3, 'class_id' => 1, 'class_time_id' => 2})
+booking5 = Booking.new({'customer_id' => 2, 'class_id' => 1, 'class_time_id' => 3})
 
 
 booking1.save
@@ -72,3 +72,6 @@ booking2.save
 booking3.save
 booking4.save
 booking5.save
+
+binding.pry
+nil

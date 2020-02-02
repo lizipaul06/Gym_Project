@@ -1,0 +1,24 @@
+<h1> A list of all our classes </h1>
+
+<table class="container">
+  <tr>
+    <th>Activity</th>
+    <th>Day</th>
+    <th>Time</th>
+    <th>Spaces Remaining</th>
+
+
+  </tr>
+  <% for class_time in @class_times %>
+  <tr>
+    <td><a href="/class_times/<%=class_time.id%>"><%= class_time.activity%></a>  </td>
+    <td><%= class_time.date  %></td>
+    <td><%= class_time.time  %></td>
+    <td><%= class_time.capacity  %></td>
+
+</tr
+  <% end %>
+</table>
+<form action="/class_times/new">
+         <button class="button" type="submit">Add class time</button>
+      </form>

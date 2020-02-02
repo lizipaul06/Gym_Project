@@ -1,7 +1,7 @@
 <h1> Customer Profile</h1>
 
 
-<table >
+<table class="container">
   <tr>
     <th>Name:</th>
     <th>Membership:</th>
@@ -20,12 +20,16 @@
 
   <form method="get" action="/customers/<%=@customer.id%>/update">
 
-  <input type="submit"  value=" Update customer"/>
+  <input class="button" type="submit"  value=" Update customer"/>
 </form>
 
 
 </form>
 <form method="post" action="/customers/<%=@customer.id%>/delete">
 
-  <input type="submit"  value="Delete customer"/>
+  <input class="button" type="submit"  value="Delete customer"/>
 </form>
+
+<form action="/customers/<%=@customer.id%>/book">
+         <button class="button" type="submit">Book a class </button>
+      </form>

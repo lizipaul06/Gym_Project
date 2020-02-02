@@ -44,17 +44,23 @@ class Gym_class
   def update()
   sql = "UPDATE classes SET (activity, instructor_id, type, intensity, status) = ($1, $2, $3, $4, $5)
    WHERE id = $6"
-   values = [@activity, @instructor_id, @type, @capacity, @intensity, @status]
+   values = [@activity, @instructor_id, @type, @intensity, @status, @id]
   result = SqlRunner.run(sql, values)
 end
 
 def times
-  sql = "SELECT * FROM class_times WHERE id = $1"
+  sql = "SELECT time FROM class_times WHERE id = $1"
   values = [@class_id]
   class_time = SqlRunner.run(sql, values)
   return Class_time.new(class_time)
 end
 
+def self.find(id)
+  sql = "SELECT * FROM classes WHERE id = $1"
+  values = [id]
+  gym = SqlRunner.run(sql, values).first
+  return Gym_class.new(gym)
+end
 
 def instructor
   sql = "SELECT * FROM instructors WHERE id = $1"

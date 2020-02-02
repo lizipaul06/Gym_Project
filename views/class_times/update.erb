@@ -1,0 +1,34 @@
+<h1> Update this class</h1>
+
+<form class="form" method="post" action="/class_times/<%=@class_time.id%>">
+
+
+  <label for="class_id"> Activity: </label>
+
+  <select id="class_id"  name="class_id" value= "<%=@class_time.activity%>">
+  <% for gym_class in @gym_classes %>
+      <option value= "<%=gym_class.id%>" > <%=gym_class.activity%></option>
+  <% end %>
+  </select>
+
+ <label for="date">type:</label>
+ <select name="date" value= "<%= @class_time.date %> ">
+   <option value="Monday">Monday </option>
+   <option value="Tuesday">Tuesday</option>
+   <option value="Wednesday">Wednesday </option>
+   <option value="Thursday">Thursday</option>
+   <option value="Fridau">Friday </option>
+   <option value="Saturday">Saturday</option>
+   <option value="Sunday">Sunday </option>
+ </select>
+
+ <hr />
+ <label for="time">Time:</label>
+<input id="time" type="text" value= "<%=@class_time.time%>" name="time" >
+
+ <label for="capacity" >Spaces Remaining:</label>
+<input id="capacity" type="text" value="<%=@class_time.capacity%>" name="capacity" >
+
+ <input class="button" type="submit"  value="Submit update Class Time">
+   <hr />
+</form>

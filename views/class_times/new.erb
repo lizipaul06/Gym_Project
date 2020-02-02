@@ -1,0 +1,33 @@
+<h1> Enter a new class</h1>
+
+<form class="form" method="post" action="/class_times">
+
+
+  <label for="class_id"> Activity: </label>
+  <select id="class_id"  name="class_id" >
+      <% for gym_class in @gym_classes %>
+      <option value= "<%=gym_class.id%>" > <%=gym_class.activity%></option>
+  <% end %>
+  </select>
+
+ <label for="date">type:</label>
+ <select name="date" >
+   <option value="Monday">Monday </option>
+   <option value="Tuesday">Tuesday</option>
+   <option value="Wednesday">Wednesday </option>
+   <option value="Thursday">Thursday</option>
+   <option value="Fridau">Friday </option>
+   <option value="Saturday">Saturday</option>
+   <option value="Sunday">Sunday </option>
+ </select>
+
+ <hr />
+ <label for="time">Time:</label>
+<input id="time" type="text" name="time" >
+
+ <label for="capacity">Spaces Remaining:</label>
+<input id="capacity" type="text" name="capacity" >
+
+ <input class="button "type="submit"  value="Submit New Class Time">
+   <hr />
+</form>

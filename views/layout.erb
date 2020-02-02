@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<link rel="stylesheet" href="/style.css">
   <head>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
 
+
+  <div class="topnav">
+    <a href="/"> Home</a>
+   <a href="/class_times">Classes Timetable</a>
+     <a href="/customers">Customers</a>
+    <a href="/classes"> Classes offered</a>
+
+  </div>
+
+
   <header>
-    <ul>
-      <li> <a href="/classes">Classes </a> </li>
-      <li> <a href="/customers">Customers</a></li>
-    </ul>
+
   </header>
 <%= yield %>
 
+
+<div class="footer">
+  <ul>
+    <li>  Posted by: Elizabeth Paul</li>
+      <li> Contact information:  yourfuturegym@fitness.com</li>
+  </ul>
+</div>
   </body>
+
+
 </html>

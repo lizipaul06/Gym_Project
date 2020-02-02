@@ -1,0 +1,22 @@
+
+<nav class="booking">
+
+
+<p> Memebers booked for our <%= @class_time.time %>  <%= @class_time.activity %> class </p>
+
+ <% for customer in @class_time.customers %>
+
+<p> <%= customer.pretty_name %> </p>
+
+<% end %>
+</nav>
+
+<form method="get" action="/class_times/<%=@class_time.id%>/update">
+
+<input class="button" type="submit"  value=" Update class"/>
+</form>
+
+<form method="post" action="/class_times/<%=@class_time.id%>/delete">
+
+    <input class="button" type="submit"  value="Delete class time"/>
+  </form>

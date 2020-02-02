@@ -7,6 +7,21 @@ get '/customers' do
   @customers = Customer.all
   erb (:"customers/index")
 end
+get '/customers/:id/book' do
+  @customer = Customer.find( params[:id] )
+    @gym_classes = Gym_class.all
+      @class_times = Class_time.all
+ erb(:"customers/book")
+end
+
+post '/customers/:id/book' do
+   @customer = Customer.find(params[:id])
+
+  newbooking = Booking.new(params)
+   newbooking.save
+
+   redirect '/class_times'
+ end
 
 get '/customers/new' do
  erb(:"customers/new")

@@ -1,0 +1,38 @@
+<h1> Edit this class</h1>
+
+
+   <form class="form" method="post" action="/classes/<%=@gym_class.id%>">
+    <label for="activity"  Name: </label>
+    <input id="activity" value="<%=@gym_class.activity%>" type="text" name="activity" >
+
+     <label for="instructor_id"> Instructor: </label>
+     <select id="instructor_id"  name="instructor_id"  value= "<%= @gym_class.instructor_id %> ">
+         <% for instructor in @instructors %>
+         <option value= "<%=instructor.id%>" > <%=instructor.name%></option>
+     <% end %>
+     </select>
+
+
+    <label for="type">type:</label>
+    <select name="type" value ="<%= @gym_class.type %>" >
+      <option value="Off Peak">Off Peak </option>
+      <option value="Peak">Peak</option>
+    </select>
+
+    <hr />
+    <label for="intensity">Intensity:</label>
+    <select name="intensity" value="<%= @gym_class.intensity%>" >
+      <option value="Low impact">Low impact</option>
+       <option value="Medium impact">Medium impact</option>
+      <option value="High impact">High impact</option>
+    </select>
+
+    <label for="status">Status:</label>
+    <select name="status" value="<%= @gym_class.status%>" >
+      <option value="active">Active</option>
+      <option value="deactive">Deactive</option>
+    </select>
+
+    <input type="submit"  value="Update Class">
+      <hr />
+   </form>

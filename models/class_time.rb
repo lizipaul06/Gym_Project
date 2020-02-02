@@ -21,9 +21,16 @@ class Class_time
     results = SqlRunner.run(sql, values).first
     @id = results['id'].to_i
   end
+  def update()
 
+  sql = "UPDATE class_times SET (class_id, date, time, capacity) = ($1, $2, $3, $4)
+   WHERE id = $5"
+   values = [@class_id, @date, @time, @capacity, @id]
+     SqlRunner.run(sql, values)
+
+end
   def self.all()
-    sql = "SELECT * FROM class_times ORDER BY class_id, time, date"
+    sql = "SELECT * FROM class_times ORDER BY  date DESC, time, class_id ASC"
     results = SqlRunner.run( sql )
     return results.map { |time| Class_time.new( time ) }
   end
@@ -39,12 +46,12 @@ class Class_time
     SqlRunner.run(sql, values)
   end
 
-  # def customers
-  #   sql = "SELECT * FROM bookings LEFT JOIN customers ON customers.id = bookings.customer_id WHERE class_time_id = $1"
-  #   values = [@id]
-  #   results = SqlRunner.run( sql ).first
-  #   return results.map { |customer| Customer.new( customer ) }
-  # end
+  def customers
+    sql = "SELECT * FROM bookings LEFT JOIN customers ON  bookings.customer_id = customers.id WHERE class_time_id = $1"
+    values = [@id]
+    results = SqlRunner.run( sql, values )
+    return results.map { |customer| Customer.new( customer ) }
+  end
 
 
   def self.find(id)
