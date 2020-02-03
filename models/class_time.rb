@@ -1,4 +1,5 @@
 require_relative( '../db/sql_runner' )
+require('pry')
 
 class Class_time
 
@@ -10,7 +11,7 @@ class Class_time
     @class_id = options['class_id'].to_i
     @date = options['date']
     @time = options['time']
-    @capacity = options['capacity']
+    @capacity = options['capacity'].to_i
   end
 
 
@@ -21,14 +22,16 @@ class Class_time
     results = SqlRunner.run(sql, values).first
     @id = results['id'].to_i
   end
+
   def update()
 
-  sql = "UPDATE class_times SET (class_id, date, time, capacity) = ($1, $2, $3, $4)
-   WHERE id = $5"
-   values = [@class_id, @date, @time, @capacity, @id]
-     SqlRunner.run(sql, values)
+    sql = "UPDATE class_times SET (class_id, date, time, capacity) = ($1, $2, $3, $4)
+    WHERE id = $5"
+    values = [@class_id, @date, @time, @capacity, @id]
+    SqlRunner.run(sql, values)
 
-end
+  end
+
   def self.all()
     sql = "SELECT * FROM class_times ORDER BY  date DESC, time, class_id ASC"
     results = SqlRunner.run( sql )
@@ -63,10 +66,37 @@ end
     return Class_time.new(class_time)
   end
 
-def activity
-  sql = "SELECT activity FROM classes WHERE id = $1"
-  values = [@class_id]
-  gym = SqlRunner.run( sql, values ).first
-  return gym["activity"]
-end
+  def activity
+    sql = "SELECT activity FROM classes WHERE id = $1"
+    values = [@class_id]
+    gym = SqlRunner.run( sql, values ).first
+    return gym["activity"]
+  end
+
+  def type
+    sql = "SELECT type FROM classes WHERE id =$1"
+    values = [@class_id]
+    gym = SqlRunner.run( sql, values ).first
+    return gym["type"]
+  end
+
+
+    def booking(parms)
+      if @capacity <= 1
+        return "sorry case is full"
+      end
+
+     if type() == "peak" && Customer.find(parms[:customer_id]).membership == "off-peak"
+         return"sorry peak membership needed"
+       end
+        # create a new class booking and save to DB
+        book1  = Booking.new(parms)
+
+        book1.save()
+
+        # reduce this class_time's capacity and update in DB
+        @capacity -= 1
+        update()
+
+      end
 end

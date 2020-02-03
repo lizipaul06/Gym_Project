@@ -1,5 +1,6 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
+require('pry')
 require_relative( '../models/class_booking')
 require_relative( '../models/gym.rb')
 require_relative( '../models/instructor')
@@ -11,15 +12,15 @@ get '/class_times/:id/book' do
   @class_time = Class_time.find( params[:id] )
     @gym_classes = Gym_class.all
     @customers = Customer.all
+
  erb(:"class_times/book")
 end
 
 post '/class_times/:id/book' do
-   @customer = Customer.find(params[:id])
 
-  @booking = Booking.new(params)
-  @booking.save
-
+  @class_time = Class_time.find( params[:id] )
+  # binding.pry
+  @class_time.booking(params)
 
  redirect '/class_times'
  end

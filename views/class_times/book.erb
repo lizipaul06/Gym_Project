@@ -3,8 +3,11 @@
 <form class="form" method="post" action="/class_times/<%=@class_time.id%>/book">
   <select id="customer_id"  name="customer_id"  >
       <% for customer in @customers %>
+      <% if customer.status == "active" %>
+
       <option value="<%=customer.id%> " > <%= customer.pretty_name%> </option>
   <%   end %>
+  <%end %>
 
   </select>
 
@@ -23,6 +26,7 @@
 
 
  </select>
+
 
 
  <input type="submit"  value="Submit Your update">

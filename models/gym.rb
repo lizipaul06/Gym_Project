@@ -48,12 +48,12 @@ class Gym_class
   result = SqlRunner.run(sql, values)
 end
 
-def times
-  sql = "SELECT * FROM class_times WHERE id = $1"
-  values = [@class_id]
-  gym = SqlRunner.run(sql, values).first
-  return Class_time.new(gym)
-end
+# def times
+#   sql = "SELECT * FROM class_times WHERE id = $1"
+#   values = [@class_id]
+#   gym = SqlRunner.run(sql, values).first
+#   return Class_time.new(gym)
+# end
 
 def self.find(id)
   sql = "SELECT * FROM classes WHERE id = $1"
@@ -62,11 +62,11 @@ def self.find(id)
   return Gym_class.new(gym)
 end
 
-def instructor
-  sql = "SELECT * FROM instructors WHERE id = $1"
-  values = [@instructor_id]
-  instructor = SqlRunner.run(sql, values).first
-  return Instructor.new(instructor)
-end
+# def instructor
+#   sql = "SELECT * FROM instructors WHERE id = $1"
+#   values = [@instructor_id]
+#   instructor = SqlRunner.run(sql, values).first
+#   return Instructor.new(instructor)
+# end
 
 end
