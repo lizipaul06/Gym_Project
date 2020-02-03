@@ -49,10 +49,10 @@ class Gym_class
 end
 
 def times
-  sql = "SELECT time FROM class_times WHERE id = $1"
+  sql = "SELECT * FROM class_times WHERE id = $1"
   values = [@class_id]
-  class_time = SqlRunner.run(sql, values)
-  return Class_time.new(class_time)
+  gym = SqlRunner.run(sql, values).first
+  return Class_time.new(gym)
 end
 
 def self.find(id)

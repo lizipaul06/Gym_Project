@@ -60,13 +60,7 @@ def self.find(id)
 end
 
 
-def book_class(class1, class_time)
-  return nil if class_time.capacity <= 1
-  class_time.capacity -= 1
-  newbooking = Booking.new({'customer_id' => @id, 'class_id' => class1.id, 'class_time_id' => class_time.id})
-  newbooking.save
-  return newbooking
-end
+
 
 
 end

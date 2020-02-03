@@ -10,17 +10,18 @@ end
 get '/customers/:id/book' do
   @customer = Customer.find( params[:id] )
     @gym_classes = Gym_class.all
-      @class_times = Class_time.all
+    @class_times = Class_time.all
  erb(:"customers/book")
 end
 
 post '/customers/:id/book' do
    @customer = Customer.find(params[:id])
 
-  newbooking = Booking.new(params)
-   newbooking.save
+  @booking = Booking.new(params)
+  @booking.save
 
-   redirect '/class_times'
+
+ redirect '/class_times'
  end
 
 get '/customers/new' do

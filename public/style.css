@@ -13,14 +13,11 @@ body {
     line-height: 1.6;
 }
 
-button {
-  font-size: 15px;
-  border-radius: 12px;
-}
+
 .button {
     font-size: 15px;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
+  /* -webkit-transition-duration: 0.4s; /* Safari */
+/*  transition-duration: 0.4s; */
 
 }
 .button:hover {
@@ -55,11 +52,14 @@ h1 {
   display: inline-table;
   width: 40%;
 }
+tr:hover {
+  background-color: #E6E6FA;
+}
 
 table, th, td {
   border: 1px solid black;
-  border-collapse: collapse;
-  padding: 5px;
+
+
   text-align: center;
 }
 

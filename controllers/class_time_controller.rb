@@ -4,9 +4,25 @@ require_relative( '../models/class_booking')
 require_relative( '../models/gym.rb')
 require_relative( '../models/instructor')
 require_relative( '../models/class_time')
+require_relative( '../models/customer')
 also_reload( '../models/*' )
 
+get '/class_times/:id/book' do
+  @class_time = Class_time.find( params[:id] )
+    @gym_classes = Gym_class.all
+    @customers = Customer.all
+ erb(:"class_times/book")
+end
 
+post '/class_times/:id/book' do
+   @customer = Customer.find(params[:id])
+
+  @booking = Booking.new(params)
+  @booking.save
+
+
+ redirect '/class_times'
+ end
 get '/class_times/:id/update' do
 
   @class_time = Class_time.find( params[:id] )

@@ -40,6 +40,8 @@ end
     SqlRunner.run(sql)
   end
 
+
+
   def delete
     sql = "DELETE FROM class_times WHERE ID = $1"
     values = [@id]

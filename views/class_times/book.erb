@@ -1,0 +1,30 @@
+
+
+<form class="form" method="post" action="/class_times/<%=@class_time.id%>/book">
+  <select id="customer_id"  name="customer_id"  >
+      <% for customer in @customers %>
+      <option value="<%=customer.id%> " > <%= customer.pretty_name%> </option>
+  <%   end %>
+
+  </select>
+
+ <select id="class_id"  name="class_id"  >
+
+     <option value="<%=@class_time.class_id%> " readonly > <%=@class_time.activity%> </option>
+
+
+ </select>
+
+ <select id="class_time_id"  name="class_time_id" >
+
+     <option value="<%= @class_time.id%>"readonly > <%=@class_time.date%>  <%=@class_time.time %></option>
+
+
+
+
+ </select>
+
+
+ <input type="submit"  value="Submit Your update">
+   <hr />
+</form>
