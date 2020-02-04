@@ -24,9 +24,9 @@ customer3.save
 customer4.save
 customer5.save
 
-instructor1 = Instructor.new({'name' => 'Millie', 'image' => '..//millie.png'})
-instructor2 = Instructor.new({'name' => 'Adam', 'image' => '../adam.png'})
-instructor3 = Instructor.new({'name' => 'John', 'image' => '../john.png'})
+instructor1 = Instructor.new({'name' => 'Millie', 'image' => '../instructor/millie.png', 'qualifications' => 'Yoga Instructor'})
+instructor2 = Instructor.new({'name' => 'Adam', 'image' => '../instructor/adam.png', 'qualifications' =>'Certified Personal Trainer'})
+instructor3 = Instructor.new({'name' => 'John', 'image' => '../instructor/john.png', 'qualifications' => 'Certified Personal Trainer and Boxing Coach'})
 
 instructor1.save
 instructor2.save

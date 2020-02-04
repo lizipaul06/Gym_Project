@@ -16,8 +16,8 @@ CREATE TABLE customers(
 CREATE TABLE instructors(
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
-  image VARCHAR(255)
-
+  image VARCHAR(255),
+   qualifications VARCHAR(255)
 );
 
 CREATE TABLE classes(

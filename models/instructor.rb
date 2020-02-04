@@ -3,19 +3,20 @@ require_relative( '../db/sql_runner' )
 class Instructor
 
 
-  attr_accessor( :id, :name, :image )
+  attr_accessor( :id, :name, :image, :qualifications )
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @image = options['image']
+    @qualifications = options['qualifications']
   end
 
 
   def save()
-    sql = "INSERT INTO instructors (name, image)
-    VALUES( $1, $2) RETURNING id"
-    values = [@name, @image]
+    sql = "INSERT INTO instructors (name, image, qualifications)
+    VALUES( $1, $2, $3) RETURNING id"
+    values = [@name, @image, @qualifications]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end

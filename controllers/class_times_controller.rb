@@ -14,7 +14,15 @@ get '/class_times/:id/update' do
   @gym_classes = Gym_class.all
   erb(:"class_times/update")
 end
-post '/class_times/:id/book/' do
+  get '/class_times/:id/book/' do
+    @class_time = Class_time.find( params[:id] )
+      @gym_classes = Gym_class.all
+      @customers = Customer.all
+
+   erb(:"class_times/book")
+  end
+
+post '/class_times/:id/book' do
 
   @class_time = Class_time.find( params[:id] )
 
@@ -22,20 +30,14 @@ post '/class_times/:id/book/' do
 
  redirect '/class_times'
  end
-get '/class_times/:id/book/' do
-  @class_time = Class_time.find( params[:id] )
-    @gym_classes = Gym_class.all
-    @customers = Customer.all
 
- erb(:"class_times/book")
-end
 
 post '/class_times/:id' do
-binding.pry
+
   @class_time = Class_time.new(params)
    @class_time.update()
 
-redirect '/class_times/:id'
+redirect '/class_times'
 
 end
 
