@@ -24,32 +24,32 @@ customer3.save
 customer4.save
 customer5.save
 
-instructor1 = Instructor.new({'name' => 'Millie'})
-instructor2 = Instructor.new({'name' => 'Adam'})
-instructor3 = Instructor.new({'name' => 'John'})
+instructor1 = Instructor.new({'name' => 'Millie', 'image' => '..//millie.png'})
+instructor2 = Instructor.new({'name' => 'Adam', 'image' => '../adam.png'})
+instructor3 = Instructor.new({'name' => 'John', 'image' => '../john.png'})
 
 instructor1.save
 instructor2.save
 instructor3.save
 
 
-class1 = Gym_class.new({'activity' => 'HIT to the MAX ', 'instructor_id' => 1, 'type' => 'peak', 'intensity' =>  'High impact', 'status' => 'active'})
-class2 = Gym_class.new({'activity' => 'Yoga ', 'instructor_id' => 3, 'type' => 'off-peak', 'intensity' =>  'Low impact', 'status' => 'active'})
-class3 = Gym_class.new({'activity' => 'Spin', 'instructor_id' => 1, 'type' => 'peak', 'intensity' =>  'High impact', 'status' => 'deactive'})
+class1 = Gym_class.new({'activity' => 'HIT to the MAX ', 'instructor_id' => 1, 'type' => 'peak', 'intensity' =>  'High impact'})
+class2 = Gym_class.new({'activity' => 'Yoga ', 'instructor_id' => 3, 'type' => 'off-peak', 'intensity' =>  'Low impact'})
+class3 = Gym_class.new({'activity' => 'Spin', 'instructor_id' => 1, 'type' => 'peak', 'intensity' =>  'High impact'})
 
 class1.save
 class2.save
 class3.save
 
-class_time1 = Class_time.new({'class_id' => 1, 'date' => 'Friday', 'time' => '09:00','capacity' => 5})
-class_time2 = Class_time.new({'class_id' => 1, 'date' => 'Wednesday', 'time' => '12:00','capacity' => 10})
-class_time3 = Class_time.new({'class_id' => 1, 'date' => 'Monday', 'time' => '10:00','capacity' => 5})
-class_time4 = Class_time.new({'class_id' => 2, 'date' => 'Friday', 'time' => '11:00','capacity' => 5})
-class_time5 = Class_time.new({'class_id' => 2, 'date' => 'Wednesday', 'time' => '09:00','capacity' => 5})
-class_time6 = Class_time.new({'class_id' => 2, 'date' => 'Monday', 'time' => '16:00','capacity' => 15})
-class_time7 = Class_time.new({'class_id' => 3, 'date' => 'Friday', 'time' => '16:00','capacity' => 15})
-class_time8 = Class_time.new({'class_id' => 3, 'date' => 'Wednesday', 'time' => '16:00','capacity' => 5})
-class_time9 = Class_time.new({'class_id' => 3, 'date' => 'Monday', 'time' => '13:00','capacity' => 10})
+class_time1 = Class_time.new({'class_id' => 1, 'date' => 'Friday', 'time' => '09:00','capacity' => 5, 'status' => 'deactive'})
+class_time2 = Class_time.new({'class_id' => 1, 'date' => 'Wednesday', 'time' => '12:00','capacity' => 10, 'status' => 'deactive'})
+class_time3 = Class_time.new({'class_id' => 1, 'date' => 'Monday', 'time' => '10:00','capacity' => 5, 'status' => 'active'})
+class_time4 = Class_time.new({'class_id' => 2, 'date' => 'Friday', 'time' => '11:00','capacity' => 5, 'status' => 'active'})
+class_time5 = Class_time.new({'class_id' => 2, 'date' => 'Wednesday', 'time' => '09:00','capacity' => 5, 'status' => 'deactive'})
+class_time6 = Class_time.new({'class_id' => 2, 'date' => 'Monday', 'time' => '16:00','capacity' => 15, 'status' => 'active'})
+class_time7 = Class_time.new({'class_id' => 3, 'date' => 'Friday', 'time' => '16:00','capacity' => 15, 'status' => 'active'})
+class_time8 = Class_time.new({'class_id' => 3, 'date' => 'Wednesday', 'time' => '16:00','capacity' => 5,'status' => 'deactive'})
+class_time9 = Class_time.new({'class_id' => 3, 'date' => 'Monday', 'time' => '13:00','capacity' => 10, 'status' => 'active'})
 class_time1.save
 class_time2.save
 class_time3.save

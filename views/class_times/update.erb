@@ -13,13 +13,13 @@
 
  <label for="date">type:</label>
  <select name="date" value= "<%= @class_time.date %> ">
-   <option value="Monday">Monday </option>
-   <option value="Tuesday">Tuesday</option>
-   <option value="Wednesday">Wednesday </option>
-   <option value="Thursday">Thursday</option>
-   <option value="Fridau">Friday </option>
-   <option value="Saturday">Saturday</option>
-   <option value="Sunday">Sunday </option>
+   <option >Monday </option>
+   <option >Tuesday</option>
+   <option >Wednesday </option>
+   <option >Thursday</option>
+   <option >Friday </option>
+   <option >Saturday</option>
+   <option >Sunday </option>
  </select>
 
  <hr />
@@ -28,6 +28,12 @@
 
  <label for="capacity" >Spaces Remaining:</label>
 <input id="capacity" type="text" value="<%=@class_time.capacity%>" name="capacity" >
+
+ <label for="status">Status:</label>
+ <select name="status" value="<%=@class_time.status%>">
+   <option >Active</option>
+   <option >Deactive</option>
+ </select>
 
  <input class="button" type="submit"  value="Submit update Class Time">
    <hr />

@@ -8,10 +8,11 @@
 }
 
 body {
-  background-image: url("background2.jpg");
+  background-image: url("image.jpg");
   font-family: "Rubik";
     line-height: 1.6;
 }
+
 
 
 .button {
@@ -29,14 +30,19 @@ table {
   background-color: white;
 
 }
+
+header {
+    position: fixed;
+    width:100%;
+}
 table th {
   background-color: rgb(100,149,237);
   color: white;
 }
 
 p {
-  background-color: white;
-    opacity: 0.8;
+  background-color: #DCDCDC;
+    opacity: 0.9;
     font-size: 20px;
   text-align: center;
   font-weight: bold;
@@ -48,10 +54,7 @@ h1 {
   font-size: 30px;
 }
 
-.container{
-  display: inline-table;
-  width: 40%;
-}
+
 tr:hover {
   background-color: #E6E6FA;
 }
@@ -89,8 +92,8 @@ table, th, td {
 }
 
 .form {
-  background-color: white;
-  opacity: 0.9;
+  background-color: #DCDCDC;
+  opacity: 0.98;
 }
 
 
@@ -112,4 +115,31 @@ table, th, td {
 .booking {
   background-color: white;
   opacity: 0.8;
+}
+
+.container {
+ display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+    background-color: #DCDCDC;
+    opacity: 0.99;
+    z-index: 0;
+}
+.container .white {
+   display: flex;
+width: 100%;
+  justify-content: space-evenly;
+
+
+
+  z-index: 0;
+}
+
+.items {
+  padding: 5px;
+  font-weight: bold;
+  z-index: 1;
+  
+
+
 }

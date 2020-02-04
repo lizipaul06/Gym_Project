@@ -1,26 +1,46 @@
 
-<nav class="booking">
+<div class="container">
+
+  <nav class="items">
 
 
-<p> Memebers booked for our <%= @class_time.time %>  <%= @class_time.activity %> class </p>
 
- <% for customer in @class_time.customers %>
+    <button > <a class="button" href="/class_times/<%=@class_time.id%>/update">Update</a> </button>
 
-<p> <%= customer.pretty_name %> </p>
+    <form method="post" action="/class_times/<%=@class_time.id%>/delete">
 
-<% end %>
-</nav>
+      <input class="button" type="submit"  value="Delete class time"/>
+    </form>
 
-<form method="get" action="/class_times/<%=@class_time.id%>/update">
 
-<input class="button" type="submit"  value=" Update class"/>
-</form>
 
-<form method="post" action="/class_times/<%=@class_time.id%>/delete">
+    <% if @class_time.status == "active" %>
+    <form action="/class_times/<%=@class_time.id%>/book/">
+      <button class="button" type="submit"> Book a class </button>
+    </form>
+    <%else%>
 
-    <input class="button" type="submit"  value="Delete class time"/>
-  </form>
+    <h2> Sorry Class is Inactive </h2>
+    <%end %>
+ </nav>
 
-  <form action="/class_times/<%=@class_time.id%>/book">
-           <button class="button" type="submit">Book a class </button>
-        </form>
+ <nav class="items">
+
+
+    <p> Memebers booked for our <%= @class_time.time %>  <%= @class_time.activity %> class </p>
+
+    <%for booking in @bookings %>
+
+     <p> <%= booking.customer.pretty_name %> </p>
+
+     <form  method="post" action="/class_times/<%=booking.id%>/booking/delete">
+
+       <input class="button" type="submit"  value="Delete booking"/>
+     </form>
+
+     <%end %>
+
+
+  </nav>
+
+</div>

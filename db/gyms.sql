@@ -15,7 +15,8 @@ CREATE TABLE customers(
 
 CREATE TABLE instructors(
   id SERIAL PRIMARY KEY,
-  name VARCHAR(255)
+  name VARCHAR(255),
+  image VARCHAR(255)
 
 );
 
@@ -24,8 +25,8 @@ CREATE TABLE classes(
   activity VARCHAR(255),
   instructor_id INT REFERENCES instructors(id) ON DELETE CASCADE,
   type VARCHAR(255),
-  intensity VARCHAR(255),
-  status VARCHAR(255)
+  intensity VARCHAR(255)
+
 
 );
 
@@ -34,7 +35,8 @@ CREATE TABLE class_times(
   class_id INT REFERENCES classes(id) ON DELETE CASCADE,
   time VARCHAR(255),
   date VARCHAR(255),
-    capacity INT
+    capacity INT,
+      status VARCHAR(255)
 );
 
 CREATE TABLE bookings(

@@ -1,4 +1,5 @@
 require_relative( '../db/sql_runner' )
+require('pry')
 
 class Customer
 
@@ -47,7 +48,7 @@ end
   def update()
   sql = "UPDATE customers SET (first_name, last_name, membership, status) = ($1, $2, $3, $4)
    WHERE id = $5"
-   values = [@first_name,@last_name, @membership, @status, @id]
+   values = [@first_name, @last_name, @membership, @status, @id]
      SqlRunner.run(sql, values)
 
 end

@@ -1,7 +1,7 @@
 <h1> Customer Profile</h1>
 
-
-<table class="container">
+<div class="containers">
+<table class="items">
   <tr>
     <th>Name:</th>
     <th>Membership:</th>
@@ -18,14 +18,16 @@
 
   <table/>
 
-  <form method="get" action="/customers/<%=@customer.id%>/update">
 
-  <input class="button" type="submit"  value=" Update customer"/>
-</form>
+<button class="button"> <a href="/customers/<%=@customer.id%>/update">Update customer</a> </button>
 
 
-</form>
-<form method="post" action="/customers/<%=@customer.id%>/delete">
+
+<form class="items" method="post" action="/customers/<%=@customer.id%>/delete">
 
   <input class="button" type="submit"  value="Delete customer"/>
+
 </form>
+
+
+</div>

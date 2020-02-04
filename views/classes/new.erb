@@ -1,9 +1,11 @@
 <h1> This is the edit page</h1>
-
+<div class="container">
 <form class="form" method="post" action="/classes">
+  <nav class="items">
  <label for="activity"> Name: </label>
  <input id="activity" type="text" name="activity" >
-
+</nav>
+<nav class="items">
   <label for="instructor_id"> Instructor: </label>
   <select id="instructor_id"  name="instructor_id" >
       <% for instructor in @instructors %>
@@ -18,20 +20,23 @@
    <option value="Peak">Peak</option>
  </select>
 
- <hr />
+
  <label for="intensity">Intensity:</label>
  <select name="intensity" >
-   <option value="Low impact">Low impact</option>
-    <option value="Medium impact">Medium impact</option>
-   <option value="High impact">High impact</option>
+   <option >Low impact</option>
+    <option >Medium impact</option>
+   <option >High impact</option>
  </select>
-
+ </nav>
+<nav class="items">
  <label for="status">Status:</label>
  <select name="status" >
-   <option value="active">Active</option>
-   <option value="deactive">Deactive</option>
+   <option >Active</option>
+   <option >Deactive</option>
  </select>
 
  <input type="submit"  value="Submit New Class">
    <hr />
 </form>
+</nav>
+</div>

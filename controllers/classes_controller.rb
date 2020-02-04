@@ -14,6 +14,7 @@ get '/classes/:id/update' do
   erb(:"classes/update")
 end
 post '/classes/:id' do
+
   @gym_class = Gym_class.new(params)
    @gym_class.update()
 
@@ -22,7 +23,7 @@ redirect '/classes'
 end
 post  '/classes/:id/delete' do
 @gym_class = Gym_class.find(params['id'].to_i)
- @gym_class.delete()
+ @gym_class.deleteclass()
 
 redirect '/classes'
 end

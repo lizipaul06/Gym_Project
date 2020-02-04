@@ -3,7 +3,7 @@ require_relative( '../db/sql_runner' )
 class Gym_class
 
   attr_reader :id
-  attr_accessor  :activity, :instructor_id, :type, :intensity, :status
+  attr_accessor  :activity, :instructor_id, :type, :intensity
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
@@ -11,15 +11,15 @@ class Gym_class
     @instructor_id = options['instructor_id'].to_i
     @type = options['type']
     @intensity = options['intensity']
-    @status = options['status']
+
 
   end
 
 
   def save()
-    sql = "INSERT INTO classes (activity, instructor_id, type, intensity, status)
-    VALUES( $1, $2, $3, $4, $5) RETURNING id"
-    values = [@activity, @instructor_id, @type, @intensity, @status]
+    sql = "INSERT INTO classes (activity, instructor_id, type, intensity)
+    VALUES( $1, $2, $3, $4) RETURNING id"
+    values = [@activity, @instructor_id, @type, @intensity]
     results = SqlRunner.run(sql, values).first
     @id = results['id'].to_i
   end
@@ -42,9 +42,9 @@ class Gym_class
   end
 
   def update()
-  sql = "UPDATE classes SET (activity, instructor_id, type, intensity, status) = ($1, $2, $3, $4, $5)
-   WHERE id = $6"
-   values = [@activity, @instructor_id, @type, @intensity, @status, @id]
+  sql = "UPDATE classes SET (activity, instructor_id, type, intensity) = ($1, $2, $3, $4)
+   WHERE id = $5"
+   values = [@activity, @instructor_id, @type, @intensity, @id]
   result = SqlRunner.run(sql, values)
 end
 
@@ -62,11 +62,11 @@ def self.find(id)
   return Gym_class.new(gym)
 end
 
-# def instructor
-#   sql = "SELECT * FROM instructors WHERE id = $1"
-#   values = [@instructor_id]
-#   instructor = SqlRunner.run(sql, values).first
-#   return Instructor.new(instructor)
-# end
+def instructor
+  sql = "SELECT * FROM instructors WHERE id = $1"
+  values = [@instructor_id]
+  instructor = SqlRunner.run(sql, values).first
+  return Instructor.new(instructor)
+end
 
 end

@@ -1,13 +1,15 @@
 <h1> Classes we offer </h1>
 
+<div class="container">
 
-<table class="container">
+
+<table class="items">
   <tr>
     <th>Activity</th>
     <th>Instructor</th>
     <th>Type</th>
     <th>Intensity</th>
-    <th>Status</th>
+
     <th>  </th>
      <th>  </th>
   </tr>
@@ -17,17 +19,17 @@
     <td><%= gym.instructor.name %> </td>
     <td><%= gym.type %></td>
     <td><%= gym.intensity %></td>
-    <td><%= gym.status %></td>
+
   <td>  <form method="post" action="/classes/<%=gym.id%>/delete">
 
-      <input class="button" type="submit"  value="Delete class"/>
+      <input  type="submit"  value="Delete class"/>
     </form>
     </td>
     <td>
-  <form method="get" action="/classes/<%=gym.id%>/update">
 
-  <input class="button" type="submit"  value=" Update class"/>
-</form>
+
+<button ><a href="/classes/<%=gym.id%>/update"> Update class</a> </button>
+
 
 
    </td>
@@ -36,8 +38,16 @@
 
 
   <% end %>
+  <form action="/classes/new">
+            <button class="button" type="submit">Add class</button>
+         </form>
 </table>
+<nav class="items">
 
-<form action="/classes/new">
-          <button class="button" type="submit">Add class</button>
-       </form>
+
+     <img src="../personal trainers.png" alt="gym class" width="350px" height="300px">
+
+
+</nav>
+
+</div>

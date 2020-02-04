@@ -17,14 +17,14 @@ get '/customers/:id/update' do
 
   @customer = Customer.find( params[:id] )
 
-  erb(:"customers/update")
+   erb(:"customers/update")
 end
 
 post  '/customers/:id/delete' do
  id = params[:id]
  @customer = Customer.find(id)
  @customer.delete()
- 
+
 redirect '/customers'
 end
 
